@@ -11,3 +11,12 @@ $user = 'root';
 $pass = 'root';
 $db = 'shop_cart';
 $Database = new mysqli($server, $user, $pass, $db);
+
+// error reporting
+mysqli_report(MYSQLI_REPORT_ERROR);
+ini_set('display_errors', 1);
+
+// set up constants
+define('SITE_NAME', 'My Online Store');
+define('SITE_PATH', 'http://localhost/');
+define('IMAGE_PATH', 'http://localhost/resources/images/');

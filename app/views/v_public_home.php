@@ -10,47 +10,8 @@
     <p><?php $this->get_data('header'); ?></p>
 
     <ul class="products">
-        <li>
-            <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 
-                alt="Beach Toys"><br>
-                <strong>Beach Toys</strong>
-            </a><br>
-            $8.99<br>
-            <a href="#" class="button_sml">Add to Cart</a>
-        </li>
-        <li>
-            <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 
-                alt="Beach Toys"><br>
-                <strong>Beach Toys</strong>
-            </a><br>
-            $8.99<br>
-            <a href="#" class="button_sml">Add to Cart</a>
-        </li>
-        <li>
-            <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 
-                alt="Beach Toys"><br>
-                <strong>Beach Toys</strong>
-            </a><br>
-            $8.99<br>
-            <a href="#" class="button_sml">Add to Cart</a>
-        </li>
-        <li class="last">
-            <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 
-                alt="Beach Toys"><br>
-                <strong>Beach Toys</strong>
-            </a><br>
-            $8.99<br>
-            <a href="#" class="button_sml">Add to Cart</a>
-        </li>
-        <li>
-            <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 
-                alt="Beach Toys"><br>
-                <strong>Beach Toys</strong>
-            </a><br>
-            $8.99<br>
-            <a href="#" class="button_sml">Add to Cart</a>
-        </li>
+        <?php $this->get_data('products'); ?>
     </ul>
-
 </div>
+
 <?php include("includes/public_footer.php"); ?>

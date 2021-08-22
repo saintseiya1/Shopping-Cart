@@ -84,4 +84,86 @@ class Products
         }
         return $data;
     }
+
+    /**
+     * Retrieve product information for all products in specific category
+     * 
+     * @access public
+     * @param in (optional), int (optional)
+     * @return string
+     */
+    public function get_in_category($id)
+    {
+        $data = array();
+        if ($stmt = $this->Database->prepare("SELECT id, name, price, image FROM " .$this->db_table . " WHERE category_id = ? ORDER BY name"))
+        {
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->store_result();
+
+            $stmt->bind_result($prod_id, $prod_name, $prod_price, $prod_image);
+            while ($stmt->fetch())
+            {
+                $data[] = array(
+                    'id' => $prod_id,
+                    'name' => $prod_name,
+                    'price' => $prod_price,
+                    'image' => $prod_image);                
+            }
+            $stmt->close();
+        }
+        return $data;
+    }
+
+    /*
+        Creation of page elements
+    */
+
+    /**
+     * Create product table using info from database
+     * 
+     * @access public
+     * @param int (optional), int (optional)
+     * @return string
+     */
+    public function create_product_table($cols = 4, $category = NULL)
+    {
+        // get products
+        if ($category != NULL)
+        {
+            $products = $this->get_in_category($category);
+        }
+        else
+        {
+            $products = $this->get();
+        }
+
+        $data = '';
+
+        // loop through each product
+        if ( ! empty($products))
+        {
+            $i = 1;
+            foreach ($products as $product)
+            {
+                $data .= '<li';
+                if ($i == $cols) 
+                {
+                    $data .= ' class="last"';
+                    $i = 0;
+                }
+                $data .= '><a href="' . SITE_PATH . 'product.php?id=' . $product['id'] . '">';
+                $data .= '<img src="' . IMAGE_PATH . $product['image'] . '" alt="' . $product['name'] . '"><br>';
+                $data .= '<strong>' . $product['name'] . '</strong></a><br/>$' . $product['price'];
+                $data .= '<br><a class="button_sml" href="' . SITE_PATH .
+                 'cart.php?id=' . $product['id'] . '">Add to cart</a></li>';
+                $i++;
+            }
+        }
+        return $data;
+    }
+
+
+
+
 }

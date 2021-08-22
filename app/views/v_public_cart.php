@@ -8,7 +8,7 @@
     </ul>
 
     <form action="" method="post">
-        <ul>
+        <ul class="cart">
             <li class="header_row">
                 <div class="col1">Product Name:</div>
                 <div class="col2">Quantity:</div>
@@ -23,7 +23,7 @@
                 <div class="col4">$8.99</div>
             </li>
 
-            <li class="subtitle_row">
+            <li class="subtotal_row">
                 <div class="col1">Subtotal:</div>
                 <div class="col2">$8.99</div>
             </li>
@@ -41,8 +41,8 @@
             </li>
         </ul>
 
-        <div class="button_row">
-            <a class="button_sml" href="?empty">Empty Cart</a>
+        <div class="buttons_row">
+            <a class="button_alt" href="?empty">Empty Cart</a>
             <input type="submit" name="update" class="button_alt" value="Update Cart">
         </div>
 

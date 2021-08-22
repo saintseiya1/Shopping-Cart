@@ -20,3 +20,9 @@ ini_set('display_errors', 1);
 define('SITE_NAME', 'My Online Store');
 define('SITE_PATH', 'http://localhost/Shopping-Cart/');
 define('IMAGE_PATH', 'http://localhost/Shopping-Cart/resources/images/');
+
+// create objects
+include('app/models/m_template.php');
+$Template = new Template();
+
+session_start();

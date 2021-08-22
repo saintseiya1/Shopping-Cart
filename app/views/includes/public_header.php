@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My Online Store</title>
+        <title><?php $this->get_data('page_title'); ?> </title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link href="resources/css/style.css" media="all" rel="stylesheet" type="text/css">

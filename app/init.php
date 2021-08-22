@@ -18,5 +18,5 @@ ini_set('display_errors', 1);
 
 // set up constants
 define('SITE_NAME', 'My Online Store');
-define('SITE_PATH', 'http://localhost/');
-define('IMAGE_PATH', 'http://localhost/resources/images/');
+define('SITE_PATH', 'http://localhost/Shopping-Cart/');
+define('IMAGE_PATH', 'http://localhost/Shopping-Cart/resources/images/');

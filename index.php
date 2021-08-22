@@ -2,4 +2,4 @@
 
 include('app/init.php');
 
-if ($Database) { echo "success!"; }
+include('app/views/v_public_home.php');

@@ -3,6 +3,12 @@
 <div id="content">
     <h2>All Products</h2>
 
+    <ul>
+        <?php $this->get_alerts(); ?>
+    </ul>
+
+    <p><?php $this->get_data('header'); ?></p>
+
     <ul class="products">
         <li>
             <a href="#"><img src="<?php echo IMAGE_PATH; ?>product_beachtoys.jpg" 

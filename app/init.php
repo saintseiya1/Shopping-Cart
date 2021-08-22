@@ -24,10 +24,12 @@ define('IMAGE_PATH', 'http://localhost/Shopping-Cart/resources/images/');
 //include objects
 include('app/models/m_template.php');
 include('app/models/m_categories.php');
+include('app/models/m_products.php');
 
 // create objects
 $Template = new Template();
 $Categories = new Categories();
+$Products = new Products();
 
 
 session_start();

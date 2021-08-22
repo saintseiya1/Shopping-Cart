@@ -1,6 +1,7 @@
 <?php
 
 include('app/init.php');
+$Template->set_data('page_class', 'home');
 
 if (isset($_GET['id']) && is_numeric($_GET['id']))
 {

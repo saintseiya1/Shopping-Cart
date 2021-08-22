@@ -105,6 +105,27 @@ h1 {
   font-size: 14px;
 }
 
+/* Product Page Styles */
+.product #content .product_image {
+  float: left;
+  margin: 0 40px 40px 0;
+  border: 1px solid #ccc;
+}
+.product #content h2 {
+  font-size: 22px;
+  margin: 10px 0 2px 0;
+}
+.product #content .price {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: green;
+  font-size: 16px;
+}
+.product #content .description {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
 /* 
     Button Styles
 */

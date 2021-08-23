@@ -21,6 +21,8 @@ define('SITE_NAME', 'My Online Store');
 define('SITE_PATH', 'http://localhost/Shopping-Cart/');
 define('IMAGE_PATH', 'http://localhost/Shopping-Cart/resources/images/');
 
+define('SHOP_TAX', '0.0875');
+
 //include objects
 include('app/models/m_template.php');
 include('app/models/m_categories.php');

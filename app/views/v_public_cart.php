@@ -3,7 +3,7 @@
 <div id="content">
     <h2>Shopping Cart</h2>
 
-    <ul>
+    <ul class="alerts">
         <?php $this->get_alerts(); ?>
     </ul>
 

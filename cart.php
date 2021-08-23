@@ -6,6 +6,11 @@ $Template->set_data('page_class', 'shoppingcart');
 if (isset($_GET['id']) && is_numeric($_GET['id']))
 {
     // check if adding a valid item
+    if ( ! $Products->product_exists($_GET['id']))
+    {
+        $Template->set_alert('Invalid item!');
+        $Template->redirect(SITE_PATH . 'cart.php');
+    }
 
     // add item to cart
     if (isset($_GET['num']) && is_numeric($_GET['num']))
@@ -28,4 +33,8 @@ if (isset($_GET['empty']))
     $Template->redirect(SITE_PATH . 'cart.php');
 }
 
+    // get category nav
+    $category_nav = $Categories->create_category_nav('');
+    $Template->set_data('page_nav', $category_nav);
+    
 $Template->load('app/views/v_public_cart.php', 'Shopping Cart');

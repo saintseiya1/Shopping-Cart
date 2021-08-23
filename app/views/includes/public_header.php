@@ -10,7 +10,21 @@
 
         <div id="wrapper">
             <div class="secondarynav">
-                <strong>0 items ($0.00) in cart</strong> &nbsp;| &nbsp;
+                <strong>
+                    <?php 
+                        $items = $this->get_data('cart_total_items', FALSE); 
+                        $price = $this->get_data('cart_total_cost', FALSE); 
+
+                        if ($items == 1)
+                        {
+                            echo $items . ' item ($' . $price . ') in cart';
+                        }
+                        else
+                        {
+                            echo $items . ' items ($' . $price . ') in cart';
+                        }
+                    ?> 
+                </strong> &nbsp;| &nbsp;
                 <a href="<?php echo SITE_PATH; ?>cart.php">Shopping Cart</a>
         </div>
 

@@ -35,3 +35,7 @@ $Cart = new Cart();
 
 
 session_start();
+
+// global
+$Template->set_data('cart_total_items', $Cart->get_total_items());
+$Template->set_data('cart_total_cost', $Cart->get_total_cost());

@@ -172,6 +172,33 @@ class Cart
         return $num;
     }
 
+    /**
+     * Return shipping cost based on cost of items
+     * 
+     * @access public
+     * @param double
+     * @return double
+     */
+    public function get_shipping_cost($total)
+    {
+        if ($total > 200)
+        {
+            return 40.0;
+        }
+        else if ($total > 50)
+        {
+            return 15.0;
+        }
+        else if ($total > 10)
+        {
+            return 4.0;
+        }
+        else 
+        {
+            return 2.0;
+        }
+    }
+
     /* 
         Create page parts
     */
@@ -199,6 +226,7 @@ class Cart
         {
             // products to display
             $line = 1;
+            $shipping = 0;
 
             foreach($products as $product)
             {
@@ -215,6 +243,7 @@ class Cart
                 $data .= '<div class="col4">$' . $product['price'] * $_SESSION['cart'][$product['id']] . 
                     '</div></li>';
 
+                $shipping += ( $this->get_shipping_cost($product['price']) * $_SESSION['cart'][$product['id']] );
                 $total += $product['price'] * $_SESSION['cart'][$product['id']];
                 $line++;
             }
@@ -222,6 +251,10 @@ class Cart
             // add subtotal row
             $data .= '<li class="subtotal_row"><div class="col1">Subtotal:</div>
                 <div class="col2">$' . $total . '</div></li>';
+
+            // shipping
+            $data .= '<li class="shipping_row"><div class="col1">Shipping Cost:</div><div class="col2">$' . 
+                number_format($shipping, 2) . '</div></li>';
 
             //taxes
             if (SHOP_TAX > 0)
@@ -241,6 +274,10 @@ class Cart
 
             // add subtotal row
             $data .= '<li class="subtotal_row"><div class="col1">Subtotal:</div>
+                <div class="col2">$0.00</div></li>';
+
+            // shipping
+            $data .= '<li class="shipping_row"><div class="col1">Shipping Cost:</div>
                 <div class="col2">$0.00</div></li>';
 
             // taxes

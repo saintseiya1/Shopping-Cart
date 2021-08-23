@@ -33,6 +33,10 @@ if (isset($_GET['empty']))
     $Template->redirect(SITE_PATH . 'cart.php');
 }
 
+    // get items in cart
+    $display = $Cart->create_cart();
+    $Template->set_data('cart_rows', $display);
+
     // get category nav
     $category_nav = $Categories->create_category_nav('');
     $Template->set_data('page_nav', $category_nav);

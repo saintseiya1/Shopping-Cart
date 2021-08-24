@@ -98,6 +98,10 @@ class Cart
         if ($num == 0)
         {
             unset($_SESSION['cart'][$id]);
+            if (empty($_SESSION['cart']))
+            {
+                unset($_SESSION['cart']);
+            }
         }
         else 
         {
